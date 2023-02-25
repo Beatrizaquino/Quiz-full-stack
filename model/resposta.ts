@@ -34,4 +34,12 @@ export default class RespostaModal {
     get revelada() {
         return this.#revelada
     }
+
+    paraObject() {
+        return {
+            valor: this.#valor,
+            certa: this.certa,
+            revelada: this.#revelada
+        }
+    }
 }

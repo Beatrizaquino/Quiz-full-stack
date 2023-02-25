@@ -1,8 +1,18 @@
+import questoes from "../bancoQuestoes"
 
-//declarando o tipo para teste
-export default (req: { query: { id: string | number } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { id: number; name: string }): void; new(): any } } }) => {
-    res.status(200).json({
-    id: +req.query.id,
-    name: 'Bea Gato'
-    })
+export default (req, res) => {
+    //obtendo valor do id
+    const idSelecionado = +req.query.id
+    //filtrando as questões que temos interesse
+   const unicaQuestao = questoes.filter(questoes => questoes.id === idSelecionado)
+   //verificanod o tamanho do array para saber se ele foi retornado
+   //gerando uma instancia e transoformando em um object
+   if(unicaQuestao.length === 1) {
+        const questaoselecionada = unicaQuestao[0].embaralharRespostas()
+        res.status(200).json(questaoselecionada.paraObject())
+    } else {
+        res.status(204).send()
+    }
+
+   
 }

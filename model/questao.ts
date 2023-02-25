@@ -1,3 +1,4 @@
+import { embaralhar } from "function/array"
 import RespotaModal from "./resposta"
 
 
@@ -9,7 +10,7 @@ export default class QuestaoModel {
     #acertou: boolean
 
 
-    constructor(id: Number, enunciado: String, respostas: RespotaModal[], acertou: boolean ){
+    constructor(id: Number, enunciado: String, respostas: RespotaModal[], acertou: false ){
 
         this.#id = id
         this.#enunciado = enunciado
@@ -26,7 +27,7 @@ export default class QuestaoModel {
         return this.#enunciado
     }
     
-    get resposta(){
+    get respostas(){
         return this.#respostas
     }
 
@@ -41,5 +42,24 @@ export default class QuestaoModel {
             return true
         }
             return false
+    }
+
+
+
+    //gerando uma nova instancia para não modificar a atual
+    embaralharRespostas( ): QuestaoModel {
+        //gerando um novo array
+        let respostasEmbaralhadas = embaralhar(this.#respostas)
+        //
+        return new QuestaoModel(this.#id, this.#enunciado, respostasEmbaralhadas, this.#acertou) 
+    }
+
+    paraObject() {
+        return {
+            id: this.#id,
+            enunciado: this.#enunciado,
+            respostas: this.#respostas.map(resp => resp.paraObject()),
+            acertou: this.acertou
+        }
     }
 }
