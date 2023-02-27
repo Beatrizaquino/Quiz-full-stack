@@ -7,10 +7,10 @@ export default class QuestaoModel {
     #id: Number
     #enunciado: String
     #respostas: RespotaModal[]
-    #acertou: boolean
+    #acertou: Boolean
 
 
-    constructor(id: Number, enunciado: String, respostas: RespotaModal[], acertou: false ){
+    constructor(id: Number, enunciado: String, respostas: RespotaModal[], acertou: Boolean ){
 
         this.#id = id
         this.#enunciado = enunciado

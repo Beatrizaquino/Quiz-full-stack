@@ -3,10 +3,10 @@
 export default class RespostaModal {
     
     #valor: string
-    #certa: boolean
-    #revelada: boolean
+    #certa: Boolean
+    #revelada: Boolean
 
-    constructor( valor: string, certa: boolean, revelada: false) {
+    constructor( valor: string, certa: Boolean, revelada: false) {
 
         this.#valor = valor
         this.#certa = certa
