@@ -35,6 +35,11 @@ export default class RespostaModal {
         return this.#revelada
     }
 
+    //criandno metodo para revelar sempre como true a resposta correta
+    revelar(){
+        return new RespostaModal(this.#valor, this.#certa, true)
+    }
+
     paraObject() {
         return {
             valor: this.#valor,
