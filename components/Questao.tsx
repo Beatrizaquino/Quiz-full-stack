@@ -13,18 +13,19 @@ export default function Questao(props: QuestaoProps) {
     function renderizarRespostas(){
         return questao.respostas.map((resposta, i) => {
             return <Resposta  
+                key={i}
                 valor={resposta}
                 indice={i}
                 letra="A"
-                corLetra="#f2c866"
+                corFundoLetra="#f2c866"
             />
         })
     }
 
     return (
         <div className={styles.questao}>
-            <Enunciado texto={questao.enunciado} />
-            {renderizarRespostas}
+            <Enunciado texto={questao.enunciado}  />
+            {renderizarRespostas()}
         </div>
     )
 }

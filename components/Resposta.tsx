@@ -5,7 +5,7 @@ interface RespostaProps {
     valor: RespostaModal
     indice: number
     letra: string
-    corLetra: string
+    corFundoLetra: string
 }
 
 export default function Resposta(props: RespostaProps) {
@@ -16,7 +16,8 @@ export default function Resposta(props: RespostaProps) {
         <div className={styles.resposta}>
             <div className={styles.consteudoResposta}>
                 <div className={styles.frente}>
-                    <div className={styles.letra}>
+                    <div className={styles.letra}
+                    style={{backgroundColor: props.corFundoLetra}}>
                         {props.letra}
                     </div>
                     <div className={styles.valor}>
