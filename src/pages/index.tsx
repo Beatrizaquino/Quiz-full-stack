@@ -15,7 +15,7 @@ export default function Home() {
   const [questao, setQuestao] = useState(questaoMock)
 
     function respostaFornecida (indice: number) {
-      console.log(indice)
+      //respondendo com o inbdeice ele vai gerar uma nova questão respondida
       setQuestao(questao.responderCom(indice))
     }
 
@@ -26,6 +26,7 @@ export default function Home() {
       alignItems: 'center',
       height: '100vh'
     }}>    
+    <h1></h1>
       <Questao valor={questao} 
       respostaFornecida={respostaFornecida}
       />
