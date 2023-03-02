@@ -35,6 +35,10 @@ export default class QuestaoModel {
         return this.#acertou
     }
 
+    get naoRespondida() {
+        return !this.respondida
+    }
+
     get respondida(){
         //laço em cima de todos os arrays
         for( let resposta of this.#respostas){
