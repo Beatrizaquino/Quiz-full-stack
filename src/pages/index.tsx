@@ -5,7 +5,7 @@ import RespostaModal from 'model/resposta'
 
 export default function Home() {
 
-  const questaoTeste = new QuestaoModel(1, ' Melhor cor ? ', [
+  const questaoTeste = new QuestaoModel(1, 'Qual é a Melhor cor na minha opinião ? ', [
     RespostaModal.errada('Azul'),
     RespostaModal.errada('Amarelo'),
     RespostaModal.errada('Rosa'),
