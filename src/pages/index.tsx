@@ -42,7 +42,7 @@ export default function Home() {
     }}>    
     <h1></h1>
       <Questao valor={questao} 
-      tempoPraResposta={5}
+      tempoPraResposta={10}
       respostaFornecida={respostaFornecida}
       tempoEsgotado={tempoEsgotado}
       />
