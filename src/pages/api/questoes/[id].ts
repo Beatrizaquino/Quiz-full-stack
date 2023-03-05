@@ -1,6 +1,6 @@
-import questoes from "../bancoQuestoes"
+/* import questoes from "../bancoQuestoes"
 
-export default (req, res) => {
+export default function (req, res) => {
     //obtendo valor do id
     const idSelecionado = +req.query.id
     //filtrando as questões que temos interesse
@@ -15,4 +15,21 @@ export default (req, res) => {
     }
 
    
+} */
+
+import questoes from '../bancoQuestoes'
+
+export default function questoesProId(req, res) {
+    const idSelecionado = +req.query.id
+
+    const unicaQuestaoOuNada = questoes.filter(questao => questao.id === idSelecionado)
+
+    if(unicaQuestaoOuNada.length === 1) {
+        const questaoSelecionada = unicaQuestaoOuNada[0].embaralharRespostas()
+        res.status(200).json(questaoSelecionada.paraObject())
+    } else {
+        res.status(204).send()
+    }
 }
+
+

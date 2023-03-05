@@ -6,7 +6,7 @@ export default class RespostaModal {
     #certa: Boolean
     #revelada: Boolean
 
-    constructor( valor: string, certa: Boolean, revelada: false) {
+    constructor( valor: string, certa: Boolean, revelada = false) {
 
         this.#valor = valor
         this.#certa = certa
@@ -40,10 +40,10 @@ export default class RespostaModal {
         return new RespostaModal(this.#valor, this.#certa, true)
     }
 
-    paraObject() {
+    paraObject(){
         return {
             valor: this.#valor,
-            certa: this.certa,
+            certa: this.#certa,
             revelada: this.#revelada
         }
     }
