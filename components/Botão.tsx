@@ -7,7 +7,7 @@ interface BotaoProps {
     onclick?: (e: any) => void
 }
 
-export default function Botao (props: BotaoProps){
+export default function Botao(props: BotaoProps){
 
     function renderizarBotao(){
         return (

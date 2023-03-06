@@ -8,7 +8,7 @@ interface QuestionarioProps {
     questao: QuestaoModel
     ultima: boolean
     questaoRespondida: (questao: QuestaoModel) => void
-    irParaProximaQuestao: ()=> void
+    irParaProximoPasso: () => void
 }
 
 export default function Questionario(props: QuestionarioProps) {
@@ -23,19 +23,19 @@ export default function Questionario(props: QuestionarioProps) {
 
     return (
         <div className={styles.questionario}>
-            {/* //como a questao virá bo backand, pode ser que ocorra 
+            {/* //como a questao virá do backand, pode ser que ocorra 
             uma demora de resposta . Assim se a questoa estiver setada irá ezibir 
             a questo, caso contrario não irá retornar nada*/}
             {props.questao ?
                 <Questao
                 valor={props.questao}
-                tempoPraResposta={6}
+                tempoPraResposta={10}
                 respostaFornecida={respostaFornecida}
-                tempoEsgotado={props.irParaProximaQuestao}
+                tempoEsgotado={props.irParaProximoPasso}
             /> :false
             } 
-                <Botao onclick={props.irParaProximaQuestao} 
-                    texto={props.ultima ? 'Finalizar' : 'Próxima'}
+                <Botao onclick={props.irParaProximoPasso} 
+                    texto={props.ultima ? 'Finalizar' : 'Próximo'}
                 />
         </div>
     )
