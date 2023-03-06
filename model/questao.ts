@@ -1,16 +1,16 @@
 import { embaralhar } from "function/array"
-import RespotaModal from "./resposta"
+import RespostaModel from "./resposta"
 
 
 export default class QuestaoModel {
 
     #id: Number
     #enunciado: String
-    #respostas: RespotaModal[]
+    #respostas: RespostaModel[]
     #acertou: boolean
 
 
-    constructor(id: Number, enunciado: String, respostas: RespotaModal[], acertou = false ) {
+    constructor(id: Number, enunciado: String, respostas: RespostaModel[], acertou = false ) {
 
         this.#id = id
         this.#enunciado = enunciado
@@ -67,6 +67,13 @@ export default class QuestaoModel {
         //
         return new QuestaoModel(this.#id, this.#enunciado, respostasEmbaralhadas, this.#acertou) 
     }
+
+    //possibilidade de criar instancias aprtir de um objeto literal
+    static criarUsandoObjeto(obj: QuestaoModel): QuestaoModel {
+        const respostas = obj.respostas.map(resp => RespostaModel.criarUsandoObjeto(resp))
+        return new QuestaoModel(obj.id, obj.enunciado, respostas, obj.acertou)
+    }
+
 
     paraObject() {
         return {

@@ -1,12 +1,12 @@
 
 
-export default class RespostaModal {
+export default class RespostaModel {
     
     #valor: string
-    #certa: Boolean
-    #revelada: Boolean
+    #certa: boolean
+    #revelada: boolean
 
-    constructor( valor: string, certa: Boolean, revelada = false) {
+    constructor( valor: string, certa: boolean, revelada = false) {
 
         this.#valor = valor
         this.#certa = certa
@@ -16,11 +16,11 @@ export default class RespostaModal {
     //utilizando metodo static dentro de uma classe, pois são funções que não dependem de nem uma variavel de instância
 
     static certa(valor: string){
-        return new RespostaModal(valor, true)
+        return new RespostaModel(valor, true)
     }
 
     static errada(valor: string) {
-        return new RespostaModal(valor, false)
+        return new RespostaModel(valor, false)
     }
 
     get valor() {
@@ -37,7 +37,11 @@ export default class RespostaModal {
 
     //criandno metodo para revelar sempre como true a resposta correta
     revelar(){
-        return new RespostaModal(this.#valor, this.#certa, true)
+        return new RespostaModel(this.#valor, this.#certa, true)
+    }
+
+    static criarUsandoObjeto(obj: RespostaModel): RespostaModel {
+        return new RespostaModel(obj.valor, obj.certa, obj.revelada)
     }
 
     paraObject(){
