@@ -12,14 +12,14 @@ interface RespostaProps {
 export default function Resposta(props: RespostaProps) {
 
     const resposta = props.valor
+    const respostaRevelada = resposta.revelada ? styles.respostaRevelada : ''
 
      return (
         <div className={styles.resposta}
         onClick={(() => props.respostaFornecida(props.indice))}
         >
-            <div className={styles.consteudoResposta}>
+            <div className={ ` ${respostaRevelada} ${styles.consteudoResposta}`}>
 
-                {!resposta.revelada ? (
                     <div className={styles.frente}>
                         <div className={styles.letra}
                         style={{backgroundColor: props.corFundoLetra}}>
@@ -30,7 +30,6 @@ export default function Resposta(props: RespostaProps) {
                         </div>
 
                     </div>
-                ) : (
                     <div className={styles.verso}>
                     {resposta.certa ? (
                         <div className={styles.certa}>
@@ -45,7 +44,6 @@ export default function Resposta(props: RespostaProps) {
                     )}
                 
                     </div>  
-                )}
             </div>
         
         </div>
