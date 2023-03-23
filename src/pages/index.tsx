@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Questionario from 'components/Questionario'
 import { useRouter } from 'next/router'
 
-const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'https://quiz-conhecimentos-gerais-ten.vercel.app/api'
 
 export default function Home() {
 
