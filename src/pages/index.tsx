@@ -50,7 +50,7 @@ export default function Home() {
 
   //obter o proximo id
   function idProximaPergunta() {
-      const proximoIndice = idsDasQuestoes.indexOf(questao.id) + 1
+      const proximoIndice = idsDasQuestoes.indexOf(questao?.id?? -1) + 1
       return idsDasQuestoes[proximoIndice] 
   }
 

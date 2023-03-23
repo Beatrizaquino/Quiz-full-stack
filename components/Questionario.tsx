@@ -5,7 +5,7 @@ import Botao from "./Botão"
 import Questao from "./Questao"
 
 interface QuestionarioProps {
-    questao: QuestaoModel
+    questao: QuestaoModel 
     ultima: boolean
     questaoRespondida: (questao: QuestaoModel) => void
     irParaProximoPasso: () => void
